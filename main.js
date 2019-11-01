@@ -52,7 +52,7 @@ function main() {
                 const colour = pixels[imgPoint.y * img.width + imgPoint.x];
 
                 // Fill the triangle with the pixel colour
-                triangle.drawFill(`rgba(${colour.r}, ${colour.g}, ${colour.b}, ${colour.a})`, true, 'black', false);
+                triangle.drawFill(`rgba(${colour.r}, ${colour.g}, ${colour.b}, ${colour.a})`, false, null, false);
                 //triangle.drawCircumcircle();
             }
 
