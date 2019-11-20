@@ -30,6 +30,7 @@ function getPixelArray(img) {
     return pixels;
 }
 
+// Setup event for file input
 function generateFromImage() {
     const imageInput = document.getElementById('imageInput').addEventListener('change', function (e) {
 
@@ -43,7 +44,7 @@ function generateFromImage() {
 
         // Create the set of points
         const sampler = new PoissonDiscSampler();
-        const points = sampler.run(WIDTH, HEIGHT, 10);
+        const points = sampler.run(WIDTH, HEIGHT, complexity);
 
         const triangles = triangulation.RunAlgorithm(points);
 

@@ -4,6 +4,7 @@ let removeStroke1 = true;
 let removeStroke2 = true;
 let colour1 = '#000000';
 let colour2 = '#FFFFFF';
+let complexity = 50;
 
 // Main()
 window.onload = () => {
@@ -22,7 +23,7 @@ function generate() {
     const sampler = new PoissonDiscSampler();
 
     // Create the set of points
-    let points = sampler.run(WIDTH, HEIGHT, 50);
+    let points = sampler.run(WIDTH, HEIGHT, complexity);
 
     // Clear screen
     clear('white');
@@ -61,7 +62,7 @@ function generate() {
             triangle.drawFill(toColour(colour), true, toColour(colour));
         } else {
             // Normal gradient
-            triangle.drawFill(toColour(newColor), removeStroke2);
+            triangle.drawFill(toColour(newColor), !removeStroke2);
         }
     }
 
@@ -150,13 +151,19 @@ function setupDesign() {
     colour2Button.addEventListener('change', () => {
         colour2 = colour2Button.value;
     });
+
+    const complexityRange = document.getElementById('complexity');
+
+    complexityRange.addEventListener('change', () => {
+        complexity = complexityRange.value;
+    });
 }
 
 function checkForResize() {
     // Rade se dvije provjere jer na mobilnoj verziji canvas nema nikakvu velicinu pa se uzima velicina generate buttona
     // a kod desktop verzije je obrnuto pa se mora gledati canvas jer je on 3:1 veci
-    if (document.getElementById('generate').clientWidth >= document.getElementsByClassName('canvas')[0].clientWidth) {
-        const layer = document.getElementById('generate');
+    if (document.getElementsByClassName('header')[0].clientWidth >= document.getElementsByClassName('canvas')[0].clientWidth) {
+        const layer = document.getElementsByClassName('header')[0];
         const canvas = document.getElementById('canvas');
         canvas.width = layer.clientWidth;
         canvas.height = layer.clientWidth;
