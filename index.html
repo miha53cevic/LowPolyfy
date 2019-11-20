@@ -5,29 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
     <script src="mihaSimpleCanvas.js"></script>
     <script src="Maths.js"></script>
-    <script src="delunayTriangulation.js"></script>
     <script src="poissonDiscSampler.js"></script>
     <script src="Gradient.js"></script>
+    <script src="delunayTriangulation.js"></script>
     <script src="image.js"></script>
     <script src="main.js"></script>
-    <title>Delunay Triangulation</title>
+    <title>Lowpolyfy</title>
 </head>
 
-<style>
-    body {
-        margin: 0px;
-        overflow: hidden;
-    }
-</style>
-
 <body>
-    <div id="canvasArea"></div>
-    <div>
-        <input id="imageInput" type="file" accept="image/*">
-        <button id="download" type="button"> Download
+
+    <div class="row">
+        <div class="leftSidePannel">
+            <header class="header">Lowpolyfy</header>
+
+            <article class="options">
+                <nav class="navbar">
+                    <div id="item1">Triangulate image</div>
+                    <div id="item2">Create pattern</div>
+                </nav>
+
+                <ol id="image">
+                    <li><input type="checkbox" id="remove-stroke1">Remove stroke</li>
+                    <li>
+                        <h3>Image</h3>
+                    </li>
+                    <li><input type="file" accept="image/*" id="imageInput"></li>
+                </ol>
+
+                <ol id="gradient">
+                    <li><input type="checkbox" id="remove-stroke2">Remove stroke</li>
+                    <li><input type="checkbox" id="dark-mode">Dark mode</li>
+                    <li>
+                        <h3>Gradient</h3>
+                    </li>
+                    <li><input type="color" id="colour1">Color1</li>
+                    <li><input type="color" id="colour2" value="#FFFFFF">Color2</li>
+                </ol>
+            </article>
+
+            <article id="generate" style="display: none;">Generate</article>
+        </div>
+
+        <aside class="canvas">
+            <div id="canvasArea" style="display: none;"></div>
+        </aside>
     </div>
+
+    <footer class="footer">Created by Mihael Petričević</footer>
+
 </body>
 
 </html>

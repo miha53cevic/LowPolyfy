@@ -11,7 +11,6 @@ function createCanvas(x, y, context = '2d') {
     canvas.id = 'canvas';
     canvas.width = x;
     canvas.height = y;
-    canvas.style.border = '1px solid black';
     document.getElementById('canvasArea').appendChild(canvas);
 
     WIDTH = canvas.width;

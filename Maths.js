@@ -265,7 +265,7 @@ class TriangleMesh {
         }
     }
 
-    drawFill(colour = 'black', enableStroke = false, strokeColour = 'white', enablePoints = true, dotColour = 'green') {
+    drawFill(colour = 'black', enableStroke = false, strokeColour = 'white', enablePoints = false, dotColour = 'green') {
         ctx.beginPath();
         ctx.moveTo(this.A.x, this.A.y);
         ctx.lineTo(this.B.x, this.B.y);
